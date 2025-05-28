@@ -1,0 +1,115 @@
+🌍 Global Nutrition Analysis: Tackling Obesity and Malnutrition with WHO Data
+This project investigates the global nutritional paradox: the co-existence of undernutrition and overnutrition (obesity) across different countries, age groups, and genders using publicly available WHO (World Health Organization) data.
+
+🗂️ Project Overview
+We extract, clean, analyze, and visualize global obesity and malnutrition trends between 2012 and 2022, then insert the cleaned data into a MySQL database for long-term storage and querying.
+
+🛠️ Step-by-Step Workflow
+1. 📥 Data Collection from WHO API
+We use 4 WHO public API endpoints:
+
+Indicator	API URL (WHO)
+Obesity (Adults)	https://ghoapi.azureedge.net/api/NCD_BMI_30C
+Obesity (Children)	https://ghoapi.azureedge.net/api/NCD_BMI_PLUS2C
+Malnutrition (Adults)	https://ghoapi.azureedge.net/api/NCD_BMI_18C
+Malnutrition (Children)	https://ghoapi.azureedge.net/api/NCD_BMI_MINUS2C
+
+2. 🧹 Data Preprocessing & Cleaning
+Loaded data from APIs using requests and converted JSON into DataFrames.
+
+Filtered records from 2012 to 2022.
+
+Selected relevant columns:
+
+ParentLocation, Dim1, TimeDim, Low, High, NumericValue, SpatialDim
+
+Renamed columns for clarity:
+
+TimeDim → Year, Dim1 → Gender, NumericValue → Mean_Estimate, etc.
+
+Standardized Gender labels to 'Male', 'Female', and 'Both'.
+
+Merged datasets:
+
+df_obesity: Combined adult and child obesity datasets.
+
+df_malnutrition: Combined adult and child malnutrition datasets.
+
+Created age_group column manually to distinguish between Adult and Child/Adolescent.
+
+Converted 3-letter country codes to full country names using the pycountry package.
+
+Handled regional placeholders like 'AFR', 'GLOBAL', etc. using a special dictionary.
+
+Calculated Confidence Interval Width:
+
+CI_Width = UpperBound - LowerBound
+
+Created new classification columns:
+
+obesity_level: Low, Moderate, High (based on BMI value)
+
+malnutrition_level: Low, Moderate, High (based on underweight %)
+
+3. 📊 Exploratory Data Analysis (EDA)
+Using Pandas, Matplotlib, and Seaborn, we explored:
+
+Distribution of obesity and malnutrition across years, genders, and regions
+
+Line plots to observe trends over time
+
+Boxplots to analyze variability by gender and age group
+
+Bar plots to compare top/bottom affected regions
+
+Heatmaps and scatter plots for pattern detection
+
+4. 💽 Data Insertion into MySQL
+Used mysql.connector to connect to a local MySQL server.
+
+Created two SQL tables: obesity and malnutrition
+
+Inserted cleaned records from Pandas DataFrames into MySQL using .iterrows() loop.
+
+Key Insights 
+Regions Requiring Urgent Intervention
+Africa (especially Sub-Saharan), South-East Asia, and Yemen face critical malnutrition rates.
+
+The Americas and Gulf countries show dangerously high obesity rates, especially among adults.
+
+Trends Over Time
+Obesity is consistently rising globally.
+
+Malnutrition shows a nonlinear trend: improvements in some countries, worsening in conflict-affected regions.
+
+ Vulnerable Demographics
+Children and Adolescents face a double burden in developing economies.
+
+Females often exhibit higher obesity prevalence, especially in urban settings.
+
+Rural male populations remain more affected by undernutrition in some African countries.
+
+Data Reliability
+Regions with high CI_Width values reflect inconsistent monitoring, and need better data infrastructure.
+
+Encourage use of standardized methods for BMI and nutrition surveys.
+
+Public Health Strategies Informed by Findings
+Double-duty policies: Tackle obesity and malnutrition simultaneously through integrated food systems and education.
+
+Targeted campaigns: Address gender-specific obesity and regional undernutrition with culturally tailored interventions.
+
+Invest in data quality: Especially in regions with high CI_Width — better data = better policy.
+
+School-based programs: Essential for reaching the child/adolescent demographic — nutrition education + physical activity.
+
+Conclusion
+This project highlights how open data, thoughtful preparation, and analytics can be combined to uncover hidden patterns and support evidence-based decision making in public health. Tackling the nutrition paradox requires both local context and global awareness — and this data-driven approach provides the tools to do exactly that.
+
+Technologies Used
+Python (Pandas, Seaborn, Matplotlib, Requests, Pycountry)
+
+MySQL for relational data storage
+
+WHO API for real-time health data
+

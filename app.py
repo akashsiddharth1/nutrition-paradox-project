@@ -81,7 +81,7 @@ if selected == "Obesity":
             LIMIT 5
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x="Region", y="Avg_Obesity", data=df, palette="coolwarm", ax=ax)
         ax.set_title("Top 5 Regions with Highest Obesity in 2022")
         st.pyplot(fig)
@@ -96,7 +96,7 @@ if selected == "Obesity":
             LIMIT 5;
         ''')
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x="Country", y="Obesity", data=df, palette="Reds_r", ax=ax)
         ax.set_title("Top 5 Countries with Highest Obesity")
         st.pyplot(fig)
@@ -111,7 +111,7 @@ if selected == "Obesity":
             ORDER BY Year;
         ''')
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.lineplot(x = "Year", y = "Obesity_Trend", data=df, palette="Set2", ax=ax)
         ax.set_title("Obesity Trend in India")
         st.pyplot(fig)
@@ -124,7 +124,7 @@ if selected == "Obesity":
             GROUP BY Gender;
         ''')
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x="Gender", y="Avg_Obesity", data=df, palette="Set2", ax=ax)
         ax.set_title("Average Obesity by Gender")
         st.pyplot(fig)
@@ -139,7 +139,7 @@ if selected == "Obesity":
         '''
         df = load_data(query)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x="obesity_level", y="Country_Count", hue="age_group", data=df, palette="viridis", ax=ax)
         ax.set_title("Country Count by Obesity Level and Age Group")
         st.pyplot(fig)
@@ -155,6 +155,10 @@ if selected == "Obesity":
         '''
         df1 = load_data(query1)
         st.dataframe(df1)
+        fig1, ax1 = plt.subplots(figsize=(10, 5))
+        sns.barplot(data=df1, x="Country", y="Avg_CI_Width", palette="Reds_r", ax=ax1)
+        ax1.set_title("Highest Average CI Width (Least Consistent Estimates)")
+        st.pyplot(fig1)
 
         st.subheader("Top 5 Most Consistent (Low CI_Width)")
         query2 = '''
@@ -166,6 +170,10 @@ if selected == "Obesity":
         '''
         df2 = load_data(query2)
         st.dataframe(df2)
+        fig2, ax2 = plt.subplots(figsize=(10, 5))
+        sns.barplot(data=df2, x="Country", y="Avg_CI_Width", palette="Greens", ax=ax2)
+        ax2.set_title("Lowest Average CI Width (Most Reliable Estimates)")
+        st.pyplot(fig2)
 
     elif query_option == "Average Obesity by Age Group":
         st.subheader(query_option)
@@ -176,7 +184,7 @@ if selected == "Obesity":
         ''')
         
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x="age_group", y="Avg_Obesity", hue="age_group", data=df, palette="viridis", ax=ax)
         ax.set_title("Average Obesity by Age Group")
         st.pyplot(fig)
@@ -195,7 +203,7 @@ if selected == "Obesity":
         ''')
         
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x="Country", y="Avg_Obesity", hue="Country", data=df, palette="viridis", ax=ax)
         ax.set_title("Consistent Low Obesity Countries")
         st.pyplot(fig)
@@ -215,7 +223,7 @@ if selected == "Obesity":
             ORDER BY Gap DESC;
         ''')
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(data=df, y='Country', x='Gap', palette='Reds_r', ax=ax)
         ax.set_title("Countries Where Female Obesity Exceeds Male by Large Margins")
         st.pyplot(fig)
@@ -229,7 +237,7 @@ if selected == "Obesity":
             ORDER BY Year;
         ''')
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(data=df, y='Global_Avg_Obesity', x='Year', palette='Reds_r', ax=ax)
         ax.set_title("Global Average Per Year")
         st.pyplot(fig)
@@ -258,7 +266,7 @@ if selected == "Malnutrition":
             GROUP BY age_group;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x='age_group', y='Avg_Malnutrition', data=df, ci=None, palette='coolwarm', ax=ax)
         ax.set_title('Average Malnutrition by Age Group')
         st.pyplot(fig)
@@ -274,7 +282,7 @@ if selected == "Malnutrition":
             LIMIT 5;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x='High_Malnutrition', y='Country', data=df, palette='Reds_r', ax=ax)
         ax.set_title('Top 5 countries with highest malnutrition')
         st.pyplot(fig)
@@ -289,7 +297,7 @@ if selected == "Malnutrition":
             ORDER BY Year;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.lineplot(x='Year', y='Avg_Malnutrition', data=df, marker='o', color='orange', ax=ax)
         ax.set_title('Malnutrition trend in African region over the years')
         st.pyplot(fig)
@@ -302,7 +310,7 @@ if selected == "Malnutrition":
             GROUP BY Gender;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x='Gender', y='Avg_Malnutrition', data=df, palette='pastel', ax=ax)
         ax.set_title('Gender-based average malnutrition')
         st.pyplot(fig)
@@ -315,7 +323,7 @@ if selected == "Malnutrition":
             GROUP BY malnutrition_level, age_group;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x='malnutrition_level', y='Avg_CI', hue='age_group', data=df, palette='Set2', ax=ax)
         ax.set_title('Malnutrition level-wise (average CI_Width by age group)')
         st.pyplot(fig)
@@ -330,7 +338,7 @@ if selected == "Malnutrition":
             ORDER BY Country, Year;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.lineplot(x='Year', y='Avg_Malnutrition', hue='Country', data=df, marker='o', ax=ax)
         ax.set_title('Yearly malnutrition change in specific countries(India, Nigeria, Brazil)')
         st.pyplot(fig)
@@ -345,7 +353,7 @@ if selected == "Malnutrition":
             LIMIT 5;
         """)
         st.dataframe(df)
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(10, 5))
         sns.barplot(x='Avg_Malnutrition', y='Region', data=df, palette='Greens', ax=ax)
         ax.set_title('Regions with lowest malnutrition averages')
         st.pyplot(fig)
@@ -474,6 +482,7 @@ if selected == "Combined":
         plt.title("Obesity vs Malnutrition Trends")
         plt.ylabel("Mean Estimate")
         plt.xticks(rotation=45)
+        plt.grid(True)
         plt.tight_layout()
         st.pyplot(plt)
 
@@ -519,23 +528,29 @@ if selected == "Combined":
     elif query_option == "Countries with obesity up & malnutrition down":
         st.subheader("Countries with obesity up & malnutrition down")
         df = load_data("""
-            SELECT o.Country, 
-           MAX(o.Mean_Estimate) - MIN(o.Mean_Estimate) AS Obesity_Change,
-           MIN(m.Mean_Estimate) - MAX(m.Mean_Estimate) AS Malnutrition_Change
-        FROM obesity o
-        JOIN malnutrition m ON o.Country = m.Country AND o.Year = m.Year
-        GROUP BY o.Country
-        HAVING Obesity_Change > 5 AND Malnutrition_Change > 5
-        ORDER BY Obesity_Change DESC;
+            SELECT o.Country,
+           o.avg_obesity,
+           m.avg_malnutrition
+        FROM (
+            SELECT Country, AVG(Mean_Estimate) AS avg_obesity
+            FROM obesity
+            GROUP BY Country
+            ) o
+        JOIN (
+            SELECT Country, AVG(Mean_Estimate) AS avg_malnutrition
+            FROM malnutrition
+            GROUP BY Country
+            ) m ON o.Country = m.Country
+        WHERE o.avg_obesity >= 25   
+          AND m.avg_malnutrition < 10;  
         """)
         st.dataframe(df)
         #plot
         plt.figure(figsize=(10, 5))
-        sns.scatterplot(data=df, x='Obesity_Change', y='Malnutrition_Change', hue='Country', s=100)
+        sns.scatterplot(data=df, x='avg_obesity', y='avg_malnutrition', hue='Country', s=100)
         plt.title("Countries: Obesity Up, Malnutrition Down")
         plt.xlabel("Obesity Increase")
         plt.ylabel("Malnutrition Decrease")
-        plt.grid(True)
         plt.tight_layout()
         st.pyplot(plt)
 

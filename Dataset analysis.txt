@@ -1,0 +1,59 @@
+1. Global Obesity Is Rising Steadily
+Line plots clearly show an upward trend in obesity rates across nearly all regions.
+
+High-income countries like those in Europe and the Americas have the highest obesity levels, especially among adults.
+
+Even in lower-income regions, a gradual rise in obesity rates is visible, hinting at a global shift in dietary patterns and lifestyle.
+
+
+2. Malnutrition Remains Persistent in Specific Regions
+Africa and South-East Asia consistently show high malnutrition levels, especially among children.
+
+Box plots reveal greater variability in malnutrition rates compared to obesity, indicating disparities within regions.
+
+
+
+3. The “Double Burden” of Malnutrition & Obesity
+Some countries (e.g., India, Egypt, South Africa) appear in both the top malnutrition and top obesity lists.
+
+The scatter plot comparing obesity and malnutrition shows no clear inverse relationship, reinforcing the idea that both can coexist in the same population — especially across age groups and income classes.
+
+
+4. Gender-Based Differences Are Apparent
+Obesity rates are often higher among females, particularly in the Americas and Eastern Mediterranean.
+
+For malnutrition, in contrast, males are slightly more affected in several regions, especially among children.
+
+
+5. Widening Confidence Intervals in Low-Income Countries
+CI_Width is often broader in countries with weaker health infrastructure, suggesting less reliable or more varied data.
+
+This can obscure trends and create challenges for policymaking.
+
+
+6. Emerging Economies Showing Fast Transitions
+Countries like Brazil, Indonesia, and Turkey show rising obesity alongside falling malnutrition, suggesting a nutritional transition.
+
+These shifts align with urbanization, processed food adoption, and reduced physical activity.
+
+
+This dual burden of nutrition is not just a health problem — it's a socioeconomic, cultural, and policy challenge. Addressing both undernutrition and overnutrition simultaneously will require targeted interventions, cross-sector collaboration, and context-aware strategies.
+
+
+
+
+Obesity vs Malnutrition by Country: Compares the average health estimates for obesity and malnutrition in five selected countries.
+
+Gender-based Disparity: Highlights how obesity and malnutrition affect males and females differently.
+
+Region-wise Avg Estimates: Shows average obesity and malnutrition levels in Africa and the Americas.
+
+Obesity ↑ & Malnutrition ↓: Displays countries where obesity has increased while malnutrition has decreased, indicating a health transition.
+
+Age-wise Trend Analysis: Explores how health metrics have changed over time across adults vs children.
+
+
+
+
+
+
